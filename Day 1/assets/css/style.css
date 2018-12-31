@@ -1,0 +1,219 @@
+:root{
+    --primary: #4e4e4e;
+    --secondary: #000000;
+    --light: #eaeaea;
+    --padding: 18px;
+    --font: roboto;
+
+    /* z-index level */
+    --base: 1;
+    --mid: 2;
+    --top: 3;
+
+    --slider: 150px;
+}
+
+html, body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    min-width: 100%;
+    min-height: 100vh;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    font-family: 'Consolas', arial;
+    color: var(--primary)
+}
+
+body{
+    background-image: linear-gradient(
+        to bottom, #cfcfd0, #d1d3d5
+    );
+}
+.screen{
+    width: 375px;
+    height: 812px;
+    padding: var(--padding);
+
+    background-color: var(--light);
+    background-image: linear-gradient(to bottom left, rgba(255,255,255,0), rgba(255,255,255,0.2));
+
+    border-radius: 30px;
+    box-shadow: 0 16px 10px -8px rgba(0,0,0,.24);
+}
+
+.nav{
+    display: flex;
+}
+.nav--top{
+    position: sticky;
+    height: 60px;
+    z-index: var(--top);
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.btn--back{
+    text-decoration: none;
+    color: black;
+}
+
+.product{
+    --mt: 20px;
+    position: relative;
+    /* margin-top: var(--mt); */
+    max-width: 100%;
+    height: calc(100% - (var(--mt) * 3));
+}
+img{
+    width: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    blend-mode: multiply;
+}
+.slide-indicators{
+    width: 60px;
+    height: 8px;
+    margin: 24px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.indicator{
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+    background-color: var(--secondary);
+}
+.flex{
+    display: flex;
+}
+.product__dash{
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: 50%;
+    padding: 0 var(--padding);
+}
+
+.product__category{
+    text-transform: uppercase;
+}
+.product__name{
+    font-size: 3em;
+    margin: 29px 0;
+}
+.collapsable{
+    box-sizing: border-box;
+    width: 100%;
+    height: 60px;
+    margin-bottom: -10px;
+}
+.collapsable__header{
+    position: relative;
+    margin-left: 40px;
+    font-weight: bold
+}
+.collapsable__header::before{
+    content: '';
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: #000;
+    margin-left: -40px;
+}
+.description__body{
+    height: 80px;
+    line-height: 1.6em;
+    overflow: hidden;
+}
+.product__dash::before{
+    content: '';
+    position: absolute;
+
+}
+/* Sliding mechanic */
+.slide{
+    position: sticky;
+    box-sizing: border-box;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: var(--primary);
+    text-align: right;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 0 40px 40px rgba(255,255,255, .25);
+
+    overflow: hidden;
+}
+.slide *:not(input){
+    transition: .4s ease-out all;
+}
+.chk--buy{
+    position: relative;
+    unset: all;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: var(--top);
+}
+
+.slide-action{
+    display: inline-block;
+    position: absolute;
+    right: 8px;
+    color: var(--light);
+    line-height: 1.1em;
+}
+.product__price{
+    background-color: var(--secondary);
+    border-radius: 18px;
+    color: var(--light);
+    position: absolute;
+    left: 0;
+    width: var(--slider);
+    height: 100%;
+    line-height: 60px;
+    text-align: center;
+    z-index: var(--base);
+}
+
+.chk--buy:checked ~ .product__price{
+    left: calc(100% - var(--slider))
+}
+.chk--buy:checked ~ .slide-action{
+    right: calc(100% - var(--slider))
+}
+/* Debug */
+.outline *{
+    outline: 2px solid black;
+}
+.chk-outline{
+    display: none
+}
+.lb-chk{
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    width: 100px;
+    height: 50px;
+    background-color: #fff;
+}
+.test{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: var(--primary);
+    left: 0;
+    transition: .4s ease-out all;
+
+}
+.chk-outline:checked ~ .test{
+    left: 50%;
+}

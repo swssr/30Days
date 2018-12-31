@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Day 1</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+  <!--Simo implementation of dribble shot https://dribbble.com/shots/5759438-Gadgets-Store-Product-Card-->
+  <label class="lb-chk" for="chk"><input type="checkbox" name="chk" id="chk" class="chk-outline"><div class="test"></div></label>
+  <div class="screen">
+    <nav class="nav nav--top">
+      <a class="nav__button btn--back" href="#">back</a>
+    </nav>
+    <main class="product">
+      <picture>
+        <source srcset="">
+        <img class="product__img" src="assets/images/magic-2-1.jpg" alt="product-description">
+      </picture>
+      <div class="product__dash">
+        <div class="slide-indicators">
+          <span class="indicator"></span>
+          <span class="indicator"></span>
+          <span class="indicator"></span>
+        </div>
+        <div class="product__category">
+          VR Glasses
+        </div>
+        <h1 class="product__name">Magic Leap One</h1>
+        <div class="product__description">
+          <div class="collapsable">
+            <span class="collapsable__header">View the Experience</span>
+            <div class="collapsable__items">
+              <!--TODO: (do it last) a list expandable images or videos, add exteernal links to YouTube too.-->
+            </div>
+          </div>
+          <div class="description__body">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius molestiae blanditiis recusandae aut quas
+            natus itaque sunt corporis odio? Ducimus, aut architecto quis quidem facilis dolorum dolore assumenda odio
+            esse.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius molestiae blanditiis recusandae aut quas
+            natus itaque sunt corporis odio? Ducimus, aut architecto quis quidem facilis dolorum dolore assumenda odio
+            esse.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius molestiae blanditiis recusandae aut quas
+            natus itaque sunt corporis odio? Ducimus, aut architecto quis quidem facilis dolorum dolore assumenda odio
+            esse.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius molestiae blanditiis recusandae aut quas
+            natus itaque sunt corporis odio? Ducimus, aut architecto quis quidem facilis dolorum dolore assumenda odio
+            esse.
+          </div>
+          <label class="flex slide" for="buy">
+            <input type="checkbox" name="buy" value="buy" class="chk--buy">
+            <span class="product__price">$200</span>
+            <span class="slide-action">SWIPE TO BUY</span>
+          </label>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="assets/js/index.js"></script>
+  <script>
+  const debug = document.getElementById('chk').addEventListener('click', () => {
+    const body = document.getElementsByTagName('body')[0]
+    body.classList.toggle('outline');
+  })
+  </script>
+</body>
+
+</html>
